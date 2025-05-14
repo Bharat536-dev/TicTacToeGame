@@ -44,7 +44,6 @@ public class Game {
         return (board[0][0] == currentPlayer &&
                 board[1][1] == currentPlayer &&
                 board[2][2] == currentPlayer) ||
-
                 (board[0][2] == currentPlayer &&
                         board[1][1] == currentPlayer &&
                         board[2][0] == currentPlayer);
@@ -63,10 +62,6 @@ public class Game {
 
     public char getCurrentPlayer() {
         return currentPlayer;
-    }
-
-    public char getCell(int row, int col) {
-        return board[row][col];
     }
 
     public void setGameOver(boolean over) {
@@ -99,4 +94,15 @@ public class Game {
         return draws;
     }
 
+    public void resetBoard() {
+        initializeBoard();
+        currentPlayer = 'X';
+        gameOver = false;
+    }
+
+    public void resetStats() {
+        xWins = 0;
+        oWins = 0;
+        draws = 0;
+    }
 }
